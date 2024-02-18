@@ -1,18 +1,21 @@
 package pro.sky.schedulefortelegrambot.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
+
 @Entity
+@Table(name = "notification_task")
 public class NotificationTask {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "chat_id")
     private Integer chatId;
+    @Column(name = "text_Notification")
     private String textNotification;
+    @Column(name = "date")
     private LocalDateTime date;
 
     public NotificationTask() {
@@ -54,5 +57,28 @@ public class NotificationTask {
 
     public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NotificationTask that = (NotificationTask) o;
+        return id == that.id && Objects.equals(chatId, that.chatId) && Objects.equals(textNotification, that.textNotification) && Objects.equals(date, that.date);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, chatId, textNotification, date);
+    }
+
+    @Override
+    public String toString() {
+        return "NotificationTask{" +
+                "id=" + id +
+                ", chatId=" + chatId +
+                ", textNotification='" + textNotification + '\'' +
+                ", date=" + date +
+                '}';
     }
 }

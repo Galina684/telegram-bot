@@ -13,9 +13,9 @@ import java.util.Objects;
 @PropertySource("application.properties")
 public class BotConfig {
     @Value("${telegram.bot.name}")
-String botName;
+    String botName;
     @Value("${telegram.bot.token}")
-String token;
+    String token;
 
     public String getBotName() {
         return botName;

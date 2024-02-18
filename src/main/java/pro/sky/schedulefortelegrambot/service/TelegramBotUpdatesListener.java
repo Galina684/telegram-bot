@@ -36,11 +36,10 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
                 String txtHello = "Приветствую! Чего изволите?";
                 SendMessage sendMessage = new SendMessage(chatId, txtHello);
                 bot.execute(sendMessage);
-                    }
-                    else{
+            } else {
                 bot.execute(new SendMessage(chatId, "Ошибка формата ввода."));
-                    }
-                }
+            }
+        }
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
     }
 
