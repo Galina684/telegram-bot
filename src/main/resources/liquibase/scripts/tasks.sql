@@ -1,5 +1,5 @@
 -- liquibase formatted sql
---changeSet Galina 1:
+-- changeset Galina:1
 CREATE TABLE notification_task
 (
     id                SERIAL PRIMARY KEY,
